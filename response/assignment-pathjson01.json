@@ -1,0 +1,33 @@
+{
+  "Company": "empty01",
+  "Companyid": [
+      "empty02"
+  ],
+  "Companycode": [
+      "empty03"
+  ],
+    "id": "empty04",
+    "name": "empty05",
+    "username": "empty06",
+    "email": "empty07",
+    "address": {
+      "street": "empty08",
+      "suite": "empty09",
+      "city": "empty10",
+      "zipcode": "empty11",
+      "geo": {
+        "lat": "empty12",
+        "lng": "empty13"
+      }
+    },
+    "phone": "empty14",
+    "website": "empty15",
+    "company": {
+      "name": "empty16",
+      "catchPhrase": "empt17",
+      "bs": "empty18"
+    }
+    
+  }
+  
+

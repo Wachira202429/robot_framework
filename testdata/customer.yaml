@@ -1,0 +1,16 @@
+customer:
+        id01:
+            titleuser: Nan
+            body: TestAPI
+            userId: 0001
+
+        id02:
+            titleuser: Few
+            body: TestAPI
+            userId: 0002
+
+        id03:
+            titleuser: Kim
+            body: TestAPI
+            userId: 0003
+

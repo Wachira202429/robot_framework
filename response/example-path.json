@@ -1,0 +1,27 @@
+{
+   "recipientId": "empty01",
+   "recipientMobileNumbers": [
+       "empty02"
+   ],
+   "recipientEmails": [
+       "empty03"
+   ],
+   "recipientTaxId": "empty04",
+   "recipientDocuments": [
+       {
+           "documentId": "empty05",
+           "sequence": "empty06",
+           "recipientName": "empty07",
+           "addressNumber": "empty08",
+           "floorNumber": "empty09",
+           "unitNumber": "empty10",
+           "addressVillage": "empty11",
+           "addressSubdistrict": "empty12",
+           "addressDistrict": "empty13",
+           "addressProvince": "empty14",
+           "addressZipCode": "empty15",
+           "addressCountryCode": "empty16",
+           "migratedAddress": "empty17"
+       }
+   ]
+}

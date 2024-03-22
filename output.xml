@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.4 on darwin)" generated="2024-03-21T08:40:46.775377" rpa="false" schemaversion="5">
+<suite id="s1" name="TA02 Assignment dummy" source="/Users/wachirar/Documents/Learning Automation/API Test/api-automation/testcases/TA02_Assignment_dummy.robot">
+<test id="s1-t1" name="TA02_Post_User" line="14">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:47.079107" level="INFO">Creating Session using : alias=Post_User, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>Post_User</arg>
+<arg>${URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-03-21T08:40:47.078754" elapsed="0.000622"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.080050" level="INFO">${headers} = {'Content-type': 'application/json; charset=UTF-8'}</msg>
+<var>${headers}</var>
+<arg>Content-type=application/json; charset=UTF-8</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.079686" elapsed="0.000399"/>
+</kw>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-03-21T08:40:47.081567" level="INFO">${body} = {'id': 1, 'title': 'iPhone 14Pro', 'description': 'An apple mobile which is nothing like apple', 'price': 549, 'discountPercentage': 12.96, 'rating': 4.69, 'stock': 94, 'brand': 'Apple', 'category': '...</msg>
+<var>${body}</var>
+<arg>request-dummyjson/Request_Post_Product.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.080309" elapsed="0.001304"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.082381" level="INFO">{'id': 1, 'title': 'iPhone 14Pro', 'description': 'An apple mobile which is nothing like apple', 'price': 549, 'discountPercentage': 12.96, 'rating': 4.69, 'stock': 94, 'brand': 'Apple', 'category': 'smartphones', 'thumbnail': 'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg', 'images': ['https://cdn.dummyjson.com/product-images/1/1.jpg', 'https://cdn.dummyjson.com/product-images/1/2.jpg', 'https://cdn.dummyjson.com/product-images/1/3.jpg', 'https://cdn.dummyjson.com/product-images/1/4.jpg', 'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg']}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.081889" elapsed="0.000582"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:47.692867" level="INFO">POST Request : url=https://dummyjson.com/products/add 
+ path_url=/products/add 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-type': 'application/json; charset=UTF-8', 'Content-Length': '566'} 
+ body=b'{"id": 1, "title": "iPhone 14Pro", "description": "An apple mobile which is nothing like apple", "price": 549, "discountPercentage": 12.96, "rating": 4.69, "stock": 94, "brand": "Apple", "category": "smartphones", "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg", "images": ["https://cdn.dummyjson.com/product-images/1/1.jpg", "https://cdn.dummyjson.com/product-images/1/2.jpg", "https://cdn.dummyjson.com/product-images/1/3.jpg", "https://cdn.dummyjson.com/product-images/1/4.jpg", "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]}' 
+ </msg>
+<msg time="2024-03-21T08:40:47.693191" level="INFO">POST Response : url=https://dummyjson.com/products/add 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '99', 'date': 'Thu, 21 Mar 2024 01:41:09 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '543', 'etag': 'W/"21f-g3L48OZB9UNvu1C0ql/YLEdiofw"', 'vary': 'Accept-Encoding', 'server': 'railway'} 
+ body={"id":101,"title":"iPhone 14Pro","price":549,"discountPercentage":12.96,"stock":94,"rating":4.69,"images":["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg","https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg","https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"],"thumbnail":"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg","description":"An apple mobile which is nothing like apple","brand":"Apple","category":"smartphones"} 
+ </msg>
+<msg time="2024-03-21T08:40:47.693550" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Post_User</arg>
+<arg>/products/add</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.082787" elapsed="0.610843"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.695509" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.694209" elapsed="0.001431"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.696750" level="INFO">OK</msg>
+<arg>${response.reason}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.695970" elapsed="0.000864"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.697959" level="INFO">{'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '99', 'date': 'Thu, 21 Mar 2024 01:41:09 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '543', 'etag': 'W/"21f-g3L48OZB9UNvu1C0ql/YLEdiofw"', 'vary': 'Accept-Encoding', 'server': 'railway'}</msg>
+<arg>${response.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.697144" elapsed="0.000916"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.699099" level="INFO">{"id":101,"title":"iPhone 14Pro","price":549,"discountPercentage":12.96,"stock":94,"rating":4.69,"images":["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg","https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg","https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"],"thumbnail":"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg","description":"An apple mobile which is nothing like apple","brand":"Apple","category":"smartphones"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.698331" elapsed="0.000856"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.700411" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.699482" elapsed="0.001050"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Step_Post_User_Success</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.700857" elapsed="0.000261"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.701647" elapsed="0.000374"/>
+</kw>
+<doc>ตัวอย่างแบบถูก</doc>
+<tag>success</tag>
+<status status="PASS" start="2024-03-21T08:40:47.077453" elapsed="0.624994"/>
+</test>
+<test id="s1-t2" name="TA03_Put_User" line="31">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:47.704038" level="INFO">Creating Session using : alias=Put_User, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>Put_User</arg>
+<arg>${URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-03-21T08:40:47.703708" elapsed="0.000614"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-21T08:40:47.704935" level="INFO">${headers} = {'Content-type': 'application/json; charset=UTF-8'}</msg>
+<var>${headers}</var>
+<arg>Content-type=application/json; charset=UTF-8</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.704603" elapsed="0.000371"/>
+</kw>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-03-21T08:40:47.706274" level="INFO">${body} = {'title': 'iPhone14', 'price': '57500', 'stock': '120', 'rating': '5.3'}</msg>
+<var>${body}</var>
+<arg>request-dummyjson/Request_Put_Product.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.705209" elapsed="0.001119"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:48.294182" level="INFO">PUT Request : url=https://dummyjson.com/products/3 
+ path_url=/products/3 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-type': 'application/json; charset=UTF-8', 'Content-Length': '72'} 
+ body=b'{"title": "iPhone14", "price": "57500", "stock": "120", "rating": "5.3"}' 
+ </msg>
+<msg time="2024-03-21T08:40:48.294295" level="INFO">PUT Response : url=https://dummyjson.com/products/3 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '98', 'date': 'Thu, 21 Mar 2024 01:41:10 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '354', 'etag': 'W/"162-et9mCZoynxWF/jC3GgQvjPb7jY0"', 'vary': 'Accept-Encoding', 'server': 'railway'} 
+ body={"id":3,"title":"iPhone14","price":"57500","discountPercentage":15.46,"stock":"120","rating":"5.3","images":["https://cdn.dummyjson.com/product-images/3/1.jpg"],"thumbnail":"https://cdn.dummyjson.com/product-images/3/thumbnail.jpg","description":"Samsung's new variant which goes beyond Galaxy to the Universe","brand":"Samsung","category":"smartphones"} 
+ </msg>
+<msg time="2024-03-21T08:40:48.294440" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Put_User</arg>
+<arg>/products/3</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-03-21T08:40:47.706682" elapsed="0.587789"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.295361" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.294748" elapsed="0.000672"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.296144" level="INFO">OK</msg>
+<arg>${response.reason}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.295622" elapsed="0.000574"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.296880" level="INFO">{'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '98', 'date': 'Thu, 21 Mar 2024 01:41:10 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '354', 'etag': 'W/"162-et9mCZoynxWF/jC3GgQvjPb7jY0"', 'vary': 'Accept-Encoding', 'server': 'railway'}</msg>
+<arg>${response.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.296362" elapsed="0.000577"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.297623" level="INFO">{"id":3,"title":"iPhone14","price":"57500","discountPercentage":15.46,"stock":"120","rating":"5.3","images":["https://cdn.dummyjson.com/product-images/3/1.jpg"],"thumbnail":"https://cdn.dummyjson.com/product-images/3/thumbnail.jpg","description":"Samsung's new variant which goes beyond Galaxy to the Universe","brand":"Samsung","category":"smartphones"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.297113" elapsed="0.000569"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.298372" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.297869" elapsed="0.000573"/>
+</kw>
+<doc>ตัวอย่างแบบถูก</doc>
+<tag>put_success</tag>
+<status status="PASS" start="2024-03-21T08:40:47.702831" elapsed="0.595826"/>
+</test>
+<test id="s1-t3" name="TA04_Patch_User" line="45">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:48.300145" level="INFO">Creating Session using : alias=Patch_User, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>Patch_User</arg>
+<arg>${URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-03-21T08:40:48.299838" elapsed="0.000522"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.301174" level="INFO">${headers} = {'Content-type': 'application/json; charset=UTF-8'}</msg>
+<var>${headers}</var>
+<arg>Content-type=application/json; charset=UTF-8</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.300641" elapsed="0.000570"/>
+</kw>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-03-21T08:40:48.302438" level="INFO">${body} = {'title': 'SamsungX10', 'price': '39500', 'stock': '186'}</msg>
+<var>${body}</var>
+<arg>request-dummyjson/Request_Patch_Product.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.301455" elapsed="0.001024"/>
+</kw>
+<kw name="PATCH On Session" owner="RequestsLibrary">
+<msg time="2024-03-21T08:40:48.886554" level="INFO">PATCH Request : url=https://dummyjson.com/products/10 
+ path_url=/products/10 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-type': 'application/json; charset=UTF-8', 'Content-Length': '57'} 
+ body=b'{"title": "SamsungX10", "price": "39500", "stock": "186"}' 
+ </msg>
+<msg time="2024-03-21T08:40:48.886683" level="INFO">PATCH Response : url=https://dummyjson.com/products/10 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '97', 'date': 'Thu, 21 Mar 2024 01:41:11 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '557', 'etag': 'W/"22d-3RsXC5XnPJJjqsrOMQPDzPhOWeE"', 'vary': 'Accept-Encoding', 'server': 'railway'} 
+ body={"id":10,"title":"SamsungX10","price":"39500","discountPercentage":6.18,"stock":"186","rating":4.43,"images":["https://cdn.dummyjson.com/product-images/10/1.jpg","https://cdn.dummyjson.com/product-images/10/2.jpg","https://cdn.dummyjson.com/product-images/10/3.jpg","https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"],"thumbnail":"https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg","description":"HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10","brand":"HP Pavilion","category":"laptops"} 
+ </msg>
+<msg time="2024-03-21T08:40:48.887012" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Patch_User</arg>
+<arg>/products/10</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.302725" elapsed="0.584325"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.888660" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.887701" elapsed="0.001049"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.890144" level="INFO">OK</msg>
+<arg>${response.reason}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.889211" elapsed="0.001009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.891827" level="INFO">{'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '97', 'date': 'Thu, 21 Mar 2024 01:41:11 GMT', 'x-ratelimit-reset': '1710985273', 'content-type': 'application/json; charset=utf-8', 'content-length': '557', 'etag': 'W/"22d-3RsXC5XnPJJjqsrOMQPDzPhOWeE"', 'vary': 'Accept-Encoding', 'server': 'railway'}</msg>
+<arg>${response.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.890511" elapsed="0.001482"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.893729" level="INFO">{"id":10,"title":"SamsungX10","price":"39500","discountPercentage":6.18,"stock":"186","rating":4.43,"images":["https://cdn.dummyjson.com/product-images/10/1.jpg","https://cdn.dummyjson.com/product-images/10/2.jpg","https://cdn.dummyjson.com/product-images/10/3.jpg","https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"],"thumbnail":"https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg","description":"HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10","brand":"HP Pavilion","category":"laptops"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.892684" elapsed="0.001362"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-03-21T08:40:48.896187" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-03-21T08:40:48.894498" elapsed="0.001954"/>
+</kw>
+<doc>ตัวอย่างแบบถูก</doc>
+<tag>patch_success</tag>
+<status status="PASS" start="2024-03-21T08:40:48.298978" elapsed="0.597947"/>
+</test>
+<status status="PASS" start="2024-03-21T08:40:46.777206" elapsed="2.120254"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">patch_success</stat>
+<stat pass="1" fail="0" skip="0">put_success</stat>
+<stat pass="1" fail="0" skip="0">success</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="TA02 Assignment dummy">TA02 Assignment dummy</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

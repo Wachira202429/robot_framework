@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.4 on darwin)" generated="2024-02-18T17:54:18.681844" rpa="false" schemaversion="5">
+<suite id="s1" name="TC05 Demo Separator" source="/Users/wachirar/Documents/Learning Automation/API Test/api-automation/testcases/TC05_Demo_Separator.robot">
+<test id="s1-t1" name="TC01_Separator" line="12">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-02-18T17:54:20.579724" level="INFO">Creating Session using : alias=Get_echo, url=https://postman-echo.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>Get_echo</arg>
+<arg>${URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-02-18T17:54:20.579392" elapsed="0.000602"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-02-18T17:54:20.580557" level="INFO">${params} = test=123</msg>
+<var>${params}</var>
+<arg>SEPARATOR=&amp;</arg>
+<arg>test=123</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-02-18T17:54:20.580334" elapsed="0.000255"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-02-18T17:54:22.305948" level="INFO">GET Request : url=https://postman-echo.com/get?test=123 
+ path_url=/get?test=123 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-02-18T17:54:22.306129" level="INFO">GET Response : url=https://postman-echo.com/get?test=123 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 18 Feb 2024 10:54:22 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '375', 'Connection': 'keep-alive', 'ETag': 'W/"177-9pQ3QUnXGO42IWvAahNLqt3Hjzg"', 'set-cookie': 'sails.sid=s%3AwBItCV2RJYNlxx0uc2QX7DArgvGmMEG4.l87cl7EDF7FlSF8AEQJ2aMT1IXiXj4so3V6KNAIE3Tk; Path=/; HttpOnly'} 
+ body={
+  "args": {
+    "test": "123"
+  },
+  "headers": {
+    "x-forwarded-proto": "https",
+    "x-forwarded-port": "443",
+    "host": "postman-echo.com",
+    "x-amzn-trace-id": "Root=1-65d1e1de-729398217b03a0fd7121ce3a",
+    "user-agent": "python-requests/2.31.0",
+    "accept-encoding": "gzip, deflate",
+    "accept": "*/*"
+  },
+  "url": "https://postman-echo.com/get?test=123"
+} 
+ </msg>
+<msg time="2024-02-18T17:54:22.306360" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Get_echo</arg>
+<arg>/get</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-02-18T17:54:20.580800" elapsed="1.725605"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-02-18T17:54:22.307644" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-02-18T17:54:22.306819" elapsed="0.000941"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Step_GET_echo_Success</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-02-18T17:54:22.308063" elapsed="0.000190"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-02-18T17:54:22.308444" elapsed="0.000215"/>
+</kw>
+<status status="PASS" start="2024-02-18T17:54:20.578371" elapsed="1.730460"/>
+</test>
+<status status="PASS" start="2024-02-18T17:54:18.683443" elapsed="3.625821"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC05 Demo Separator">TC05 Demo Separator</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
